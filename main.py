@@ -39,10 +39,10 @@ def main():
             # step 2: YOLO inference only on motion frames
             detections = object_detector.detect(frame)
 
-        # step 3: map to security event
+        # step 3: map to security event 
         event = event_mapper.map(detections)
 
-        # step 4: temporal smoothing
+        # step 4: temporal smoothing for stable alerts
         smoothed_event = smoother.update(event)
 
         # step 5: alert if event confirmed
